@@ -13,10 +13,11 @@ class CustomBaseProductModel(models.Model):
      class Meta:
      
          abstract = True
-         
+class Product(CustomBaseProductModel):
+    pass
 class Reviews(models.Model):
     author = models.ForeignKey(user, related_name='review', on_delete=models.CASCADE)
-    product = models.ForeignKey(CustomBaseProductModel, related_name='reviews', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, related_name='reviews', on_delete=models.CASCADE)
     stars = models.FloatField(default=5.0)
     text = models.CharField(max_length=512)
     

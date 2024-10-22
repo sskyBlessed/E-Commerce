@@ -73,10 +73,12 @@ TEMPLATES = [
         },
     },
 ]
-
+AUTH_USER_MODEL = 'users.user'
 WSGI_APPLICATION = 'commerce.wsgi.application'
-
-
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+CORS_ALLOW_ALL = True
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 

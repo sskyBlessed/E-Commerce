@@ -4,7 +4,6 @@ from django.apps import apps
 from .models import CustomBaseProductModel, create_custom_model
 
 class CustomModelViewSet(viewsets.ViewSet):
-
     def list(self, request):
         custom_models = apps.get_models(include_auto_created=True)
         data = [model._meta.model_name for model in custom_models if isinstance(model, CustomBaseProductModel)]
